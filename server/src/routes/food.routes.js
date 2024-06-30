@@ -12,14 +12,9 @@ import { createFoodSchema } from "../schemas/food.schema.js";
 
 const router = Router();
 
-router.get("/foods", authRequired, getFoods);
-router.get("/foods/:id", authRequired, getFood);
-router.post(
-    "/foods",
-    authRequired,
-    validateSchema(createFoodSchema),
-    createFood
-);
+router.get("/foods", getFoods);
+router.get("/foods/:id", getFood);
+router.post("/foods", validateSchema(createFoodSchema), createFood);
 router.delete("/foods/:id", authRequired, deleteFood);
 router.put("/foods/:id", authRequired, updateFood);
 export default router;
