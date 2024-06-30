@@ -23,7 +23,10 @@ export const register = async (req, res) => {
         const userSaved = await newUser.save();
         const token = await createAccessToken({ id: userSaved._id });
 
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+        });
         res.json({
             id: userSaved._id,
             username: userSaved.username,
@@ -53,7 +56,10 @@ export const login = async (req, res) => {
 
         const token = await createAccessToken({ id: userFound._id });
 
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+        });
         res.json({
             id: userFound._id,
             username: userFound.username,
@@ -69,9 +75,14 @@ export const login = async (req, res) => {
 };
 
 export const logout = (req, res) => {
-    res.cookie("token", "", {
-        expires: new Date(0),
-    });
+    res.cookie(
+        "token",
+        "",
+        {
+            expires: new Date(0),
+        },
+        { httpOnly: true, secure: true }
+    );
     return res.sendStatus(200);
 };
 
