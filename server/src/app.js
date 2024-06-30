@@ -9,12 +9,14 @@ import taskRoutes from "./routes/task.routes.js";
 import foodRoutes from "./routes/food.routes.js";
 import countryRoutes from "./routes/country.routes.js";
 
+import { FRONTEND_URL } from "./config.js";
+
 const app = express();
 
 //cors configuration for the frontend to access the backend server
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: FRONTEND_URL,
         credentials: true,
     })
 );
