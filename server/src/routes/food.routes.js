@@ -15,6 +15,6 @@ const router = Router();
 router.get("/foods", getFoods);
 router.get("/foods/:id", getFood);
 router.post("/foods", validateSchema(createFoodSchema), createFood);
-router.delete("/foods/:id", authRequired, deleteFood);
-router.put("/foods/:id", authRequired, updateFood);
+router.delete("/foods/:id", deleteFood);
+router.put("/foods/:id", updateFood);
 export default router;
