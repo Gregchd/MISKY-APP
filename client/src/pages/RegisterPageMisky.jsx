@@ -30,54 +30,54 @@ function RegisterPage() {
 
             {/* Mitad Derecha - Formulario de inicio de sesión */}
             <div className="w-1/2 flex items-center justify-center">
-                <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div className="bg-white shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4 max-w-md w-full">
                     {
                         RegisterErrors.map((error, i) => (
-                            <div className="bg-red-500 p-2 text-white" key={i}>
+                            <div className="bg-red-500 p-2 text-white rounded-md mb-2" key={i}>
                                 {error}
                             </div>
                         ))
                     }
                     <form onSubmit={onSubmit} className="">
-                        <h2 className="text-4xl mb-4 text-gray-700 flex justify-center">Registrate</h2>
+                        <h2 className="text-4xl mb-4 text-gray-800 flex justify-center">Registrate</h2>
                         <div className="mb-4">               
                             <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-orange-500"
                             type="text"
                             placeholder="Usuario"
                             {...register("username", {required: true})}
                             />
-                            {errors.username && <p className="text-red-500">El nombre de usuario es requerido</p>}
+                            {errors.username && <p className="text-red-500 text-sm mt-1">El nombre de usuario es requerido</p>}
                         </div>
                         <div className="mb-4">               
                             <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-orange-500"
                             type="text"
                             placeholder="Correo"
                             {...register("email", {required: true})}
                             />
-                            {errors.username && <p className="text-red-500">El correo es requerido</p>}
+                            {errors.username && <p className="text-red-500 text-sm mt-1">El correo es requerido</p>}
                         </div>
                         <div className="mb-6">                
                             <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-orange-500"
                             type="password"
                             placeholder="Contraseña"
                             {...register("password", {required: true})}
                             />
-                            {errors.username && <p className="text-red-500">La contraseña es requerida</p>}
+                            {errors.username && <p className="text-red-500 text-sm mt-1">La contraseña es requerida</p>}
                         </div>
                         <div className="flex items-center justify-center">
                             <button
-                            className="bg-[#FFE04D] hover:bg-[#FFD200] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
                             type="submit"
                             >
                             Registrarse
                             </button>
                         </div>
                     </form>
-                    <p className="flex gap-x-2 justify-between text-black mt-5">
-                        ¿Ya tienes una cuenta?<Link to="/login" className="text-sky-500">Iniciar sesión</Link>
+                    <p className="flex gap-x-2 justify-between text-gray-700 mt-5">
+                        ¿Ya tienes una cuenta?<Link to="/login" className="text-orange-500">Iniciar sesión</Link>
                     </p>
                 </div>
             </div>

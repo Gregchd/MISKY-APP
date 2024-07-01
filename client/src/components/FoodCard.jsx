@@ -1,7 +1,10 @@
 import React from 'react'
+import {useFoods} from "../context/FoodContext"
 import { Link } from "react-router-dom"
 
 function FoodCard({food}) {
+
+    const {deleteFood} = useFoods()
 
     return (
         <div className="bg-white shadow-lg rounded-md overflow-hidden flex flex-col md:flex-row items-center md:items-stretch p-4">
@@ -12,6 +15,11 @@ function FoodCard({food}) {
                     <Link to={`/foods/${food._id}`} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md">
                         Ver
                     </Link>
+                    <button
+                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md" 
+                    onClick={() => {
+                        deleteTask(food._id)
+                    }}>Eliminar</button>
                 </div>
             </div>
             {food.imglink && (
