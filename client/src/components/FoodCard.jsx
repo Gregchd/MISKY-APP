@@ -18,7 +18,7 @@ function FoodCard({food}) {
                     <button
                     className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md" 
                     onClick={() => {
-                        deleteTask(food._id)
+                        deleteFood(food._id)
                     }}>Eliminar</button>
                 </div>
             </div>
